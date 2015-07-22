@@ -525,6 +525,9 @@ public class VideoCallPresenter extends Presenter<VideoCallPresenter.VideoCallUi
     public void onDetailsChanged(Call call, android.telecom.Call.Details details) {
         Log.d(this, " onDetailsChanged call=" + call + " details=" + details + " mPrimaryCall="
                 + mPrimaryCall);
+        if (call == null) {
+            return;
+        }
         // If the details change is not for the currently active call no update is required.
         if (!call.equals(mPrimaryCall)) {
             Log.d(this,
